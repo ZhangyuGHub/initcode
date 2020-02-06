@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/iconfont.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="./js/jquery-1.12.4.min.js"></script>
 </head>
 
 <body>
@@ -23,11 +24,41 @@
             <form class="login_form">
                 <i class="iconfont icon-user"></i>
                 <i class="iconfont icon-key"></i>
-                <input type="text" class="input_txt" placeholder="邮箱/手机号">
-                <input type="password" class="input_pass" placeholder="密码">
-                <input type="submit" class="input_sub" value="登 录">
+                <input type="text" id="username" class="input_txt" placeholder="用户名">
+                <input type="password" id="password" class="input_pass" placeholder="密码">
+                <input type="button" id="btnlogin" class="input_sub" value="登 录">
             </form>
         </div>
-    </div> 
+    </div>
 </body>
+<script>
+    // 给button设置点击事件
+    // 判断密码是否为空
+    // 提交数据
+    $('#btnlogin').click(function () {
+        var name = $('#username').val().trim()
+        var password = $('#password').val().trim()
+        if (name.length === 0 || password.length === 0) {
+            alert("用户名或者密码不能为空");
+            return
+        }
+        $.post('http://192.168.43.101:8000/admin/login', {
+            'user_name': name,
+            'password': password
+        }).then(function (res) {
+            console.log(res);
+            if (res.code === 200) {
+                alert("登陆成功");
+            }
+            else if (res.code === 400) {
+                alert('用户名或密码错误，登陆失败');
+            }
+        })
+    });
+
+
+
+
+</script>
+
 </html>
