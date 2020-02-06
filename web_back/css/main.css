@@ -2,6 +2,9 @@ body{
     font-family:'MicroSoft YaHei';
     background-color: #f2f3f5;
 }
+i{
+    font-style: normal;
+}
 .main_wrap{
     position:fixed;
     width:100%;
