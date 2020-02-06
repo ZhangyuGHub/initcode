@@ -1,6 +1,6 @@
 var out = {
     logout: function () {
-        $.post('http://192.168.43.101:8000/admin/logout').then(function (res) {
+        $.post(API.logout).then(function (res) {
             if (res.code === 200) {
                 alert("退出成功");
                 window.location.href = "./login.html"
@@ -14,7 +14,7 @@ var out = {
 }
 var userinfo = {
     info: function () {
-        $.get("http://192.168.43.101:8000/admin/getuser").then(function (res) {
+        $.get(API.loginfo).then(function (res) {
             if (res.code === 200) {
                 $('#username').text(res.data.nickname);
                 $('.userimg').text('src', res.data.user_pic);
@@ -28,7 +28,7 @@ var userinfo = {
 
 var admin = {
     login: function (name, password) {
-        $.post('http://192.168.43.101:8000/admin/login', {
+        $.post(API.login, {
             'user_name': name,
             'password': password
         }).then(function (res) {
