@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="css/iconfont.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="./unit/userlogin.js"></script>
+
 </head>
 
 <body>
@@ -110,34 +112,7 @@
         }
 
     </script>
-    <script>
-        var out = {
-            logout: function () {
-                $.post('http://192.168.43.101:8000/admin/logout').then(function (res) {
-                    if (res.code === 200) {
-                        alert("退出成功");
-                        window.location.href = "./login.html"
-                    }
-                    else {
-                        alert(res.msg);
-                    }
 
-                });
-            }
-        }
-        var userinfo = {
-            info: function () {
-                $.get("http://192.168.43.101:8000/admin/getuser").then(function (res) {
-                    if (res.code === 200) {
-                        $('#username').text(res.data.nickname);
-                        $('.userimg').text('src', res.data.user_pic);
-
-                    }
-
-                });
-            }
-        }
-    </script>
     <script>
         $("#btnlogout").click(function () {
             out.logout();

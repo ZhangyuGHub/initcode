@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/iconfont.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="./unit/userlogin.js"></script>
     <script src="./js/jquery-1.12.4.min.js"></script>
 </head>
 
@@ -31,26 +32,7 @@
         </div>
     </div>
 </body>
-<script>
-    // 代码语义化
 
-    var admin = {
-        login: function (name, password) {
-            $.post('http://192.168.43.101:8000/admin/login', {
-                'user_name': name,
-                'password': password
-            }).then(function (res) {
-                console.log(res);
-                if (res.code === 200) {
-                    window.location.href = "./index.html"
-                }
-                else if (res.code === 400) {
-                    alert('用户名或密码错误，登陆失败');
-                }
-            })
-        }
-    }
-</script>
 <script>
     // 给button设置点击事件
     // 判断密码是否为空
