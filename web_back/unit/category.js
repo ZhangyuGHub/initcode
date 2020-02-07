@@ -18,3 +18,9 @@ var category_del = {
         return $.post(API.category_del, { "id": id });
     }
 }
+// 编辑文章类别
+var category_change = {
+    change: function (id, name, slug) {
+        return $.post(API.category_change, { "id": id, "name": name, "slug": slug })
+    }
+}
