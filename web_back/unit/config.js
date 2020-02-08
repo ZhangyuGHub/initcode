@@ -1,5 +1,5 @@
-var BASURL = "http://192.168.43.101:8000";
-var API = {
+const BASURL = "http://192.168.31.103:8000";
+const API = {
     //退出地址
     logout: BASURL + "/admin/logout",
     // 登录地址

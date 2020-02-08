@@ -65,9 +65,9 @@
 
 
     <script>
-        var $level01 = $('.level01');
-        var $subli = $('.level02 li')
-        $level01.click(function () {
+        let $level01 = $('.level01');
+        let $subli = $('.level02 li')
+        $level01.click(() => {
             $level01.not($(this)).removeClass('active');
             $(this).addClass('active');
 
@@ -79,7 +79,7 @@
             }
         })
 
-        $subli.click(function () {
+        $subli.click(() => {
             $subli.not($(this)).removeClass('active');
             $(this).addClass('active');
 
@@ -97,9 +97,7 @@
 
         resizeFrame();
 
-        $(window).resize(function () {
-            resizeFrame();
-        })
+        $(window).resize(() => resizeFrame())
 
 
         function setMenu(m, n) {
@@ -115,9 +113,9 @@
     </script>
 
     <script>
-        $("#btnlogout").click(function () {
-            out.logout();
-        });
+        $("#btnlogout").click(() => out.logout());
+
+
         // 获取管理员信息
         userinfo.info();
     </script>

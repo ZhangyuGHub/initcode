@@ -90,9 +90,7 @@
     </div>
     <script>
         // 设置左侧菜单
-        $('#release_btn').click(function () {
-            window.parent.setMenu(1, 1);
-        })
+        $('#release_btn').click(() => window.parent.setMenu(1, 1))
     </script>
     <script id="tmp_categoty" type="text/html">
         <option>所有分类</option>
@@ -101,10 +99,9 @@
     {{/each}}
         </script>
     <script>
-        category_get.get().then(function (res) {
-            var htmlstr = template("tmp_categoty", res)
-            $("#selCategory").html(htmlstr);
-        })
+        // 获取文章类别信息
+        category_get.get().then((res) => $("#selCategory").html(template("tmp_categoty", res)))
+        // var htmlstr = template("tmp_categoty", res)
     </script>
 </body>
 

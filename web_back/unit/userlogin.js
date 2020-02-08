@@ -1,6 +1,6 @@
 var out = {
-    logout: function () {
-        $.post(API.logout).then(function (res) {
+    logout: () => {
+        $.post(API.logout).then((res) => {
             if (res.code === 200) {
                 alert("退出成功");
                 window.location.href = "./login.html"
@@ -13,8 +13,8 @@ var out = {
     }
 }
 var userinfo = {
-    info: function () {
-        $.get(API.loginfo).then(function (res) {
+    info: () => {
+        $.get(API.loginfo).then((res) => {
             if (res.code === 200) {
                 $('#username').text(res.data.nickname);
                 $('.userimg').text('src', res.data.user_pic);
@@ -27,11 +27,11 @@ var userinfo = {
 // 代码语义化
 
 var admin = {
-    login: function (name, password) {
+    login: (name, password) => {
         $.post(API.login, {
             'user_name': name,
             'password': password
-        }).then(function (res) {
+        }).then((res) => {
             console.log(res);
             if (res.code === 200) {
                 window.location.href = "./index.html"

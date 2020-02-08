@@ -38,7 +38,7 @@
     // 给button设置点击事件
     // 判断密码是否为空
     // 提交数据
-    $('#btnlogin').click(function () {
+    $('#btnlogin').click(() => {
         var name = $('#username').val().trim()
         var password = $('#password').val().trim()
         if (name.length === 0 || password.length === 0) {
